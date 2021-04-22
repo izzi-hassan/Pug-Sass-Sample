@@ -1,0 +1,293 @@
+html
+	scroll-behavior: smooth
+
+// html.sr .load-hidden
+// 	visibility: hidden
+
+body
+	font-size: 140%
+	font-family: 'HamburgTS'
+	font-weight: 300
+	color: $black
+	font-smoothing: auto
+	-webkit-font-smoothing: auto
+	-webkit-overflow-scrolling: touch
+	-moz-osx-font-smoothing: grayscale
+	text-rendering: optimizeLegibility
+	font-size: 110%
+	+susy-breakpoint($small)
+		font-size: 120%
+	+susy-breakpoint($large)
+		font-size: 140%
+
+	&.locked
+		overflow-y: hidden
+
+.blur
+	filter: blur(4px)
+
+*
+	&:focus
+		outline: none
+
+img
+	max-width: 100%
+
+a
+	@apply .text-black
+	text-decoration: none
+
+.barba-container:not(#print)
+	padding-top: 100px
+	+susy-breakpoint($small)
+		padding-top: 130px
+	+susy-breakpoint($large)
+		padding-top: 200px
+
+.barba-container#print
+	.page-title,
+	.content
+		padding: 2rem 4rem
+		+susy-breakpoint($large)
+			padding: 2rem 6rem
+
+#overlay
+	pointer-events: none
+	opacity: 0
+	transition: opacity 0.3s $easeInOutQuart
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: rgba($black,0.3)
+	cursor: pointer
+	overflow-y: scroll
+	@apply .fixed .z-30 .py-8
+
+	&.show
+		opacity: 1
+		pointer-events: all
+
+#overlay-message
+	+container(95%)
+	left: 2.5%
+	top: 2.5%
+	transition: all 0.3s $easeInOutQuart 0.5s
+	pointer-events: none
+	opacity: 0
+	@apply .absolute .p-8 .bg-white .z-40 .mb-8
+	+susy-breakpoint($medium)
+		+container(500px)
+		left: 50%
+		margin-left: -250px
+		top: 18%
+
+	p, a.btn
+		@apply .text-base
+
+	p
+		@apply .my-4
+
+	&.show
+		opacity: 1
+		pointer-events: all
+		top: 2.5%
+		+susy-breakpoint($medium)
+			top: 20%
+
+	&.hide
+		opacity: 0
+		top: 0%
+		transition: all 0.3s ease 0s
+		pointer-events: none
+		+susy-breakpoint($medium)
+			top: 10%
+
+.image-header
+	min-height: 500px
+	position: relative
+
+	.feature-image
+		max-width: 80%
+		right: 1rem
+		top: 0
+
+		@include IE10Plus
+			z-index: -1 //Only IE
+
+
+.container
+	width: 100%
+	+container($xlarge)
+
+.wrapper
+	@apply .px-4
+	+susy-breakpoint($small)
+		@apply .px-8
+
+.barba-container .content
+	@apply .py-8 .leading-normal
+	+susy-breakpoint($small)
+		@apply .py-16
+
+	h3
+		@apply .my-4
+
+	p
+		@apply .my-6
+
+	ul
+		list-style-type: disc
+		@apply .pl-8
+
+		li
+			@apply .my-4
+
+.white-page
+	@apply .bg-white .p-8 .my-8
+
+.hover-item
+	transition: all 0.2s ease
+	&:hover
+		transform: translate(-0.25rem, -0.25rem)
+		box-shadow: 0.5rem 0.5rem 0 0 rgba($black, 0.2)
+
+	date
+		@apply .mt-4 .block
+
+.btn
+	@apply .inline-block .bg-black .text-white .px-4 .py-3 .border-0
+	&:hover
+		@apply .bg-yellow .text-black
+
+.inline-btn
+	@apply .border-white .border-b-4 .font-bold .py-2
+
+
+.masonry
+	+susy-breakpoint($medium)
+		column-count: 2
+
+.masonry-brick
+	+susy-breakpoint($medium)
+		break-inside: avoid
+		ul
+			break-inside: avoid-column
+
+.masonry-brick-inside
+	margin-bottom: 1.5rem
+	@apply .bg-white .p-8
+
+#search
+	display: none
+	opacity: 0
+	pointer-events: none
+	transition: all 0.3s ease
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: rgba($yellow, 0.99)
+	@apply .fixed .z-20 .items-center
+	+susy-breakpoint($medium)
+		@apply .p-16
+
+	&.active
+		opacity: 1
+		display: flex
+		pointer-events: all
+
+		input[type="text"]
+			transform: translateY(0)
+
+	.search-close
+		position: absolute
+		top: 2rem
+		right: 2rem
+		cursor: pointer
+		@apply .text-4xl
+
+	input[type="text"]
+		width: 100%
+		transform: translateY(-2rem)
+		transition: all 0.3s ease
+		@apply .py-4 .bg-transparent .border-black .border-b-4
+		+susy-breakpoint($medium)
+			@apply .text-5xl
+
+		&::placeholder
+			@apply .text-black
+
+	button
+		display: none
+
+
+.rtt
+	top: 50%
+	right: 0
+	transform-origin: right top
+	transform: rotate(90deg)
+	padding: 0.5rem 1rem
+	transition: all 0.3s ease
+	opacity: 0
+	pointer-events: none
+	@apply .fixed .bg-white .text-black .text-sm .z-20
+
+	&.active
+		opacity: 1
+		pointer-events: all
+
+.print
+	display: inline-block
+
+	+susy-breakpoint($xxlarge)
+		position: absolute
+		transform: translate(calc(-100% - 2rem), calc(100% + 1rem))
+
+	a
+		width: 3rem
+		height: 3rem
+		background: $black
+		color: $white
+		display: flex
+		align-items: center
+
+	i
+		display: block
+		margin: 0 auto
+		font-size: 2rem
+
+	span
+		font-size: 1.2rem
+		font-weight: bold
+		display: block
+		text-align: center
+
+
+.copy
+	a:not(.btn)
+		text-decoration: underline
+
+#preload-bar
+	width: 100%
+	height: 3px
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 300
+	background: white
+
+	svg
+		height: 3px
+
+	path
+		stroke: $black
+
+#preload-overlay
+	position: fixed
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	z-index: 200
+	background-color: white

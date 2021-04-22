@@ -1,0 +1,5 @@
+@mixin IE10Plus()
+	@media all and (-ms-high-contrast:none)
+		@content
+	@supports(-ms-ime-align: auto)
+		@content

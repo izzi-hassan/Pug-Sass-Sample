@@ -1,0 +1,76 @@
+.footer-hero
+	@apply .bg-cover .bg-center .bg-no-repeat .text-white .py-4 .flex .items-end .text-center
+	height: 50px
+	min-height: 300px
+	transition: filter 0.3s ease
+	filter: saturate(0)
+	+susy-breakpoint($small)
+		@apply .py-32
+		min-height: 500px
+	+susy-breakpoint($medium)
+		@apply .items-center
+		min-height: 600px
+	+susy-breakpoint($large)
+		min-height: 700px
+	+susy-breakpoint($xlarge)
+		min-height: 900px
+
+	@include IE10Plus
+		filter: grayscale(100%)
+
+	&:hover
+		filter: saturate(1)
+		@include IE10Plus
+			filter: grayscale(0)
+
+footer
+	@apply .py-8
+	+susy-breakpoint($small)
+		@apply .py-16
+	.container
+		+susy-breakpoint($small)
+			@apply .flex
+
+	.footer-nav
+		display: none
+		column-count: 3
+		+susy-breakpoint($medium)
+			@apply .block
+
+		li
+			break-inside: avoid
+
+
+		a
+			@apply .py-1 .inline-block
+
+	.social
+		@apply .pb-8
+		+susy-breakpoint($small)
+			@apply .flex .py-0 .px-8
+
+		ul
+			+susy-breakpoint($small)
+				@apply .flex
+
+		li
+			@apply .mr-2 .inline-block .w-12 .h-12
+			+susy-breakpoint($large)
+				@apply .w-16 .h-16
+
+		a
+			@apply .block .w-full .h-full .flex .items-center .text-white .bg-black
+			+susy-breakpoint($small)
+				&:hover
+					@apply .bg-white .text-black
+
+		i
+			@apply .w-full .text-center
+
+	.footer-logo
+		max-width: 200px
+
+	.sub-footer
+		@apply .pt-8
+		+susy-breakpoint($medium)
+			@apply .pt-16

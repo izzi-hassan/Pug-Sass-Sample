@@ -1,0 +1,73 @@
+#staff
+	.page-title
+		.staff-details
+			@apply .text-xl .py-4
+
+			label
+				display: inline-block
+				font-weight: 600
+
+			div
+				+susy-breakpoint($large)
+					@apply .inline-block .pr-4
+
+	.image-header
+		.feature-image
+			z-index: -1
+			max-width: 40%
+			top: 2rem
+			right: 1rem
+			+susy-breakpoint($medium)
+				top: 0
+				right: 3rem
+			+susy-breakpoint($large)
+				z-index: initial
+				@include IE10Plus
+					z-index: -1
+
+	.half-box
+		+susy-breakpoint($large)
+			max-width: 600px
+
+
+.staff
+	+susy-breakpoint($medium)
+		display: flex
+		flex-wrap: wrap
+
+	.person
+		+susy-breakpoint($medium)
+			flex: 0 0 33.3333%
+		+susy-breakpoint($large)
+			flex: 0 0 20%
+
+		img
+			display: block
+			transition: all 0.3s ease
+
+		&:hover
+			img
+				opacity: 0.2
+
+			.title
+				transform: translateY(0)
+				opacity: 1
+
+	.person-inner
+		margin: 1rem
+		background: $white
+		padding: 1rem 0 0
+		position: relative
+
+	.title
+		position: absolute
+		top: 50%
+		width: 100%
+		text-align: center
+		margin-top: -1rem
+		opacity: 0
+		transition: all 0.3s ease
+		transform: translateY(-10%)
+
+		span
+			border-bottom: 4px solid $yellow

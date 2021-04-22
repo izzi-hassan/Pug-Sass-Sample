@@ -1,0 +1,52 @@
+h1, blockquote, h2.big
+	@apply .text-4xl .leading-none .font-bold
+	+susy-breakpoint($small)
+		@apply .text-5xl
+	+susy-breakpoint($large)
+		@apply .text-giant
+
+h2
+	@apply .text-2xl .leading-tight
+	+susy-breakpoint($small)
+		@apply .text-4xl
+	+susy-breakpoint($large)
+		@apply .text-5xl
+
+h3
+	@apply .text-xl .leading-tight
+	+susy-breakpoint($small)
+		@apply .text-2xl
+	+susy-breakpoint($large)
+		@apply .text-3xl
+
+.content blockquote
+	@apply .my-6
+	+susy-breakpoint($small)
+		@apply .my-8
+	+susy-breakpoint($large)
+		@apply .my-12
+	p
+		margin: 0
+
+.page-title
+	@apply .my-4
+
+	+susy-breakpoint($small)
+		@apply .pt-4 .pb-16 .text-giant
+	+susy-breakpoint($xlarge)
+		@apply .pt-10 .pb-32 .text-giant
+
+	h1
+		@apply .mb-4 .leading-none
+
+	h2
+		max-width: 600px
+
+	date
+		@apply .text-xl
+
+	.btn
+		@apply .text-xl
+
+strong
+	font-weight: 800

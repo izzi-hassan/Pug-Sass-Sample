@@ -1,0 +1,121 @@
+include ../includes
+
++barba('default')
+
+	.page-section.full-width#splash(data-title="{{ title }}")
+		#splash-header.justify-xl.text-center
+			div.line.text-sm A Celebration of the best in Australian
+			div.line.text-sm
+				span.normal-spacing.text-sm
+					|  XXXXXXXXXX
+				|, XXXXXXXXX
+		#splash-footer
+			div
+				p.text-sm.no-margins SUBMISSIONS OPEN
+				p.no-margins.justify-lg XX. XX. XXXX
+			div.text-right
+				p.text-sm.no-margins PRESENTED BY
+				p.no-margins
+					img(src="../../img/XXXXX.svg")
+		#splash-logo
+			img(src="../../img/XXXX.svg")
+	
+	+ss('get_content from="/about"')
+		.page-section#about(data-title="{{ title }}")
+			.content
+				h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+				+s('content | widont')
+
+	hr.page-separator
+
+	+ss('get_content from="/our-team"')
+		.page-section#our-team(data-title="{{ title }}")
+			.content
+				h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+				#team-photo-container
+					img#team-photo(src="{{ team_photo }}")
+					.team-members
+						+ss('team_members')
+							span.team-member.text-sm
+								+s('name')
+
+				+s('content | widont')
+
+	hr.page-separator
+
+	+ss('get_content from="/categories-XXXX"')
+		.page-section#categories-XXXX(data-title="{{ title }}")
+			h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+			.content
+				+s('content | widont')
+
+			.categories-judges
+				+ss('categories_XXXXX')
+					.category-XXXX
+						.category-XXXX-inner
+							h4 {{ category_name }}
+							p {{ category_description }}
+							span.text-sm XXXXXX
+							br
+							span {{ XXXX }}
+							br
+							span.text-sm {{ XXXXX }}
+							br
+							p.no-margins &bull;
+							p.no-margin-top {{ XXXXX }}
+		hr.clear
+
+	hr.page-separator
+
+	+ss('get_content from="/XXXXX-dates"')
+		.page-section#key-dates(data-title="{{ title }}")
+			h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+			.events
+				+ss('events')
+					.event
+						.event-details {{ name }}
+							span.description.text-xs {{ description }}
+						.event-date {{ date }}
+
+	+ss('get_content from="/subscribe"')
+		.page-section.full-width#subscribe(data-title="{{ title }}")
+			.form-title
+				h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+				a(href="#view-form", title="View Form").subscribe-form-trigger
+					i.fal.fa-plus.text-lg
+			.content
+				+s('content | widont')
+			form(action="/!/mail/subscribe" method="post").subscribe-form
+				.form-row
+					.form-col.space-out
+						label Are you a XXXXX?
+						div
+							input.styled-checkbox(type="radio" id="subscriber_type_y" name="subscriber_type" value="producer")
+							label(for="subscriber_type_y") Y
+							input.styled-checkbox(type="radio" id="subscriber_type_n" name="subscriber_type" value="other" )
+							label(for="subscriber_type_n") N
+					.form-col
+						label Company
+						input(type="text" name="company")
+				.form-row
+					.form-col
+						label Name
+						input(type="text" name="name")
+					.form-col
+						label Phone No.
+						input(type="text" name="phone")
+				.form-row
+					.form-col
+						label Email
+						input(type="email" name="email")
+					.form-col.space-out
+						p.no-margins.grey-text.text-sm *ALL MANDATORY FIELDS*
+						input.submit(type="Submit" value="Submit Details")
+				input(name="list_id" type="hidden" value="XXXXXX")
+				+s('csrf_field')
+
+	+ss('get_content from="/contact"')
+		.page-section#contact(data-title="{{ title }}")
+			h2 {{ if override_title }}{{ override_title }}{{ else }}{{ title }}{{ /if }}
+			.content
+				+s('content | widont')

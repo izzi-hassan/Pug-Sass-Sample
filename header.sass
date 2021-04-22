@@ -1,0 +1,201 @@
+header
+	width: 100%
+	background: rgba($white, 0)
+	transition: all 0.3s ease
+	@apply .fixed .z-20
+	.container
+		transition: all 0.3s ease
+		@apply .flex .py-4
+		+susy-breakpoint($small)
+			@apply .py-8
+		+susy-breakpoint($large)
+			@apply .py-16
+
+	&.scrolled
+		background: rgba($white, 0.9)
+		.container
+			@apply .py-4
+			+susy-breakpoint($small)
+				@apply .py-4
+			+susy-breakpoint($large)
+				@apply .py-8
+
+	&.active
+		background: rgba($white, 0.9)
+
+	.logo
+		@apply .w-32 .mr-8 .z-10
+		img
+			@apply .block
+
+	.nav-trigger
+		cursor: pointer
+		@apply .text-4xl .self-center .z-10
+		+susy-breakpoint($large)
+			@apply .hidden
+
+		i
+			@apply .text-black
+
+	a.assets-for-sale
+		display: none
+		+susy-breakpoint($large)
+			display: block
+			top: 0
+			right: 1rem
+			transition: all 0.3s ease
+			@apply .py-2 .px-4 .absolute .bg-black .text-white
+
+	&.scrolled a.assets-for-sale
+		@apply .text-base
+
+	.search
+		display: flex
+		margin-left: auto
+		font-size: 1.8rem
+		margin-right: 1rem
+		align-items: center
+		+susy-breakpoint($large)
+			@apply .items-center .border-transparent .border-b-4 .ml-4
+
+	&.active
+		ul.nav
+			left: 0
+			right: 0
+			top: 0
+			bottom: 0
+			overflow-y: scroll
+			@apply .block .fixed .bg-white .px-4 .pt-32 .pb-20
+			+susy-breakpoint($large)
+				@apply .flex .absolute
+
+.image-header
+	position: relative
+	min-height: 200px
+	+susy-breakpoint($small)
+		min-height: 400px
+	+susy-breakpoint($large)
+		min-height: 600px
+
+ul.nav
+	display: none
+	@apply .text-2xl .relative .justify-around .flex-1
+	a
+		@apply .py-0 .my-2 .inline-block .whitespace-no-wrap
+		+susy-breakpoint($large)
+			@apply .py-2 .block
+
+	& > li
+		& > a
+			@apply .border-transparent .border-b-4
+		&.child-active > a
+			@apply .border-yellow .border-b-4
+		&:hover:not(.active):not(.search) > a
+			@apply .border-black .border-b-4
+
+	.active > a
+		@apply .border-yellow .border-b-4
+
+	+susy-breakpoint($large)
+		@apply .flex .items-center
+		li
+			@apply .flex .self-stretch .items-center .relative
+		& > li
+
+			&:hover ul.sub-nav
+				@apply .block
+			ul
+				li
+					@apply .bg-yellow .p-2
+					&.active > a
+						@apply .border-transparent
+					&:hover
+						background: $black
+						& > a
+							color: white
+				li:not(:last-child)
+					@apply .border-b .border-white
+				a
+					@apply .block .px-4 .pt-2 .pb-1
+
+
+
+ul.sub-nav
+	@apply .ml-2
+	+susy-breakpoint($large)
+		@apply .ml-0
+
+	+susy-breakpoint($large)
+		left: 50%
+		width: 220px
+		transform: translateX(-50%) translateY(100%)
+		position: relative
+		@apply .absolute .hidden .pin-b .py-6
+
+		&::before
+			content: ""
+			width: 20px
+			height: 20px
+			@apply .bg-yellow .absolute .text-2xl
+			top: 15px
+			left: 50%
+			transform: translateX(-50%) rotate(45deg)
+
+		li.has_entries:hover
+			ul.third-nav
+				display: block
+
+				li:first-child::before
+					@apply .bg-black
+
+	+susy-breakpoint($large)
+		li.active a
+			@apply .border-b-0
+
+	i
+		@apply .ml-2
+		cursor: pointer
+		+susy-breakpoint($large)
+			display: none
+
+ul.third-nav
+	display: none
+	@apply .ml-2
+
+	&.show
+		display: block
+
+	+susy-breakpoint($large)
+		@apply .ml-0
+		left: 220px
+		top: 0
+		z-index: -1
+		overflow: hidden
+		@apply .absolute
+
+		li:first-child
+			z-index: 0
+			box-shadow: inset 1px 0 0 0 $white
+
+			&::before
+				content: ""
+				width: 20px
+				height: 20px
+				box-shadow: inset 0 0 0 1px $white
+				z-index: 3
+				@apply .bg-yellow .absolute .text-2xl
+				top: 25px
+				left: 0
+				transform: translateX(-50%) rotate(45deg)
+
+			&:hover
+				&::before
+					background-color: $black
+
+.breadcrumbs
+	@apply .hidden .text-lg
+	+susy-breakpoint($small)
+		@apply .block
+
+	.divider
+		@apply .mx-1

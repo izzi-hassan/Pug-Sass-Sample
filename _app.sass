@@ -1,0 +1,35 @@
+@import ~susy/sass/susy
+$susy: ( use-custom: ( box-sizing: false ))
+
+$gutter: (gutters: 0.1, gutter-position: inside, use-custom: (box-sizing: false))
+$splitgutter: (gutters: 0.1, gutter-position: split, use-custom: (box-sizing: false))
+$minigutter: (gutters: 0.02, gutter-position: before, use-custom: (box-sizing: false))
+$smallgutter: (gutters: 0.07, gutter-position: before, use-custom: (box-sizing: false))
+$nogutter: (gutters: 0, use-custom: (box-sizing: false))
+
+$small: 576px
+$medium: 768px
+$large: 992px
+$xlarge: 1440px
+$xxlarge: 1600px
+
+$black: #231f20
+$yellow: #fcda01
+$white: #ffffff
+
+$easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955)
+$easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000)
+$easeInOutExpo: cubic-bezier(1.000, 0.000, 0.000, 1.000)
+$easeInOutBounce: cubic-bezier(0.680, 0, 0.265, 1)
+
+@import mixins
+@import tailwind
+@import base
+@import header
+@import footer
+@import type
+
+@import home
+@import matters
+@import contact
+@import staff

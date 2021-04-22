@@ -1,0 +1,102 @@
+#home
+	.page-logo
+		width: 90%
+		max-width: 160px
+		padding-top: 2rem
+		transition: opacity 0.3s ease
+		display: none
+		+susy-breakpoint($small)
+			display: block
+		+susy-breakpoint($large)
+			max-width: 250px
+			padding-top: 5rem
+
+	.page-title
+		max-width: 300px
+		position: absolute
+		bottom: -202px
+		+susy-breakpoint($small)
+			bottom: -202px
+		+susy-breakpoint($large)
+			bottom: -261px
+			max-width: 500px
+		+susy-breakpoint($xlarge)
+			bottom: -325px
+
+	.home-content
+		padding-top: 16rem
+		+susy-breakpoint($small)
+			padding-top: 16rem
+		+susy-breakpoint($large)
+			padding-top: 22rem
+		+susy-breakpoint($xlarge)
+			padding-top: 28rem
+
+
+	.half-box
+		@apply .py-1
+		+susy-breakpoint($large)
+			max-width: 48%
+
+		&.right
+			+susy-breakpoint($large)
+				/*max-width: 800px*/
+				float: right
+
+
+	.solvency-cta
+		@apply .text-center .px-4 .flex .items-center
+		min-height: 400px
+		+susy-breakpoint($small)
+			min-height: 600px
+		+susy-breakpoint($medium)
+			min-height: 800px
+
+		.solvency-cta-content
+			width: 100%
+			+susy-breakpoint($large)
+				+container(600px)
+			h2
+				@apply .mb-4
+
+	.latest-news-widget
+		padding-bottom: 2rem
+		+susy-breakpoint($medium)
+			padding-bottom: 8rem
+
+		.news-posts
+			+susy-breakpoint($medium)
+				display: flex
+
+		.news-post
+			@apply .bg-white .p-8 .my-8
+
+			+susy-breakpoint($medium)
+				&:first-child
+					@apply .mr-4
+
+				&:last-child
+					@apply .ml-4
+
+			date
+				@apply .block .my-4
+
+	.trigger-accordion
+		position: relative
+		z-index: 2
+
+		h2
+			cursor: pointer
+
+	.offset-image
+		position: relative
+		z-index: 1
+		transition: filter 0.3s ease
+		filter: saturate(0)
+		+susy-breakpoint($large)
+			position: absolute
+			top: 50%
+			right: 0
+
+		&:hover
+			filter: saturate(1)

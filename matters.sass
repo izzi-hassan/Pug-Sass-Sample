@@ -1,0 +1,166 @@
+#listing
+	.filter-nav
+		+susy-breakpoint($medium)
+			@apply .flex .justify-between
+
+		span.sort
+			cursor: pointer
+			@apply .border-transparent .border-b-4
+			&.asc,
+			&.desc
+				@apply .border-white .border-b-4
+
+		label
+			@apply .mr-4
+
+		span.sort
+			@apply .mx-4
+
+
+		label, span.sort
+			@apply .inline-block
+
+		.search-field
+			@apply .flex .justify-between .my-4
+			+susy-breakpoint($medium)
+				@apply .inline .my-0
+			input
+				border: none
+				padding: 0
+				background: none
+				font-weight: 300
+				width: 100%
+				+susy-breakpoint($medium)
+					width: auto
+					@apply .mx-4
+					text-align: right
+				&::placeholder
+					opacity: 1
+					color: $black
+
+		.sort-display
+			width: 1rem
+			position: relative
+			i
+				position: absolute
+				opacity: 0
+			@apply .text-sm
+		.asc
+			i.is-asc
+				opacity: 1
+		.desc
+			i.is-desc
+				opacity: 1
+
+	.items-header
+		display: none
+		+susy-breakpoint($medium)
+			@apply .flex .bg-black .text-white .justify-between .mt-12
+
+		label
+			@apply .px-8 .py-4
+
+	#collection-list
+		+susy-breakpoint($medium)
+			.title
+				width: 50%
+			.date
+				width: 25%
+			.type
+				width: 25%
+
+	.list
+		article
+			@apply .bg-white .my-4 .p-4
+			+susy-breakpoint($medium)
+				@apply .flex .justify-between .p-0 .my-8
+
+			& > div
+				+susy-breakpoint($medium)
+					@apply .p-8
+
+
+#matter,
+#asset
+	label
+		display: block
+		font-weight: bold
+		+susy-breakpoint($medium)
+			font-weight: normal
+			display: inline-block
+			min-width: 220px
+
+		&.spacer
+			display: none
+			+susy-breakpoint($medium)
+				display: inline-block
+
+	.item-details
+		+susy-breakpoint($medium)
+			@apply .flex .justify-between
+			& > div
+				flex-basis: 50%
+				&:first-child
+					@apply .mr-8
+
+				&:last-child
+					@apply .ml-8
+
+	.downloads
+		.download-box
+			@apply .bg-white .p-4 .block .mb-4
+			+susy-breakpoint($medium)
+				@apply .flex .items-center .p-8
+
+		span
+			@apply .block
+			+susy-breakpoint($medium)
+				@apply .px-8
+
+		.download-title
+			+susy-breakpoint($medium)
+				width: 50%
+				font-weight: 600
+
+		.download-date
+			@apply .text-base
+			+susy-breakpoint($medium)
+				@apply .text-xl
+
+		i
+			font-size: 1.8rem
+			+susy-breakpoint($medium)
+				font-size: 2.3rem
+
+		.file-icon
+			@apply .text-black
+			+susy-breakpoint($medium)
+				width: 4rem
+				height: 4rem
+				position: relative
+				@apply .bg-black .text-white .inline-block .p-4
+
+				i.fa-file-pdf
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+
+
+		span.download-link
+			display: none
+			+susy-breakpoint($medium)
+				display: block
+				margin-left: auto
+				padding-right: 0
+
+
+	.gallery
+		a.image
+			flex-basis: 50%
+			+susy-breakpoint($small)
+				flex-basis: 33.333%
+			+susy-breakpoint($medium)
+				flex-basis: 25%
+		img
+			width: calc(100% - 2rem)

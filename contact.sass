@@ -1,0 +1,25 @@
+#contact
+	.contact-details
+		+susy-breakpoint($medium)
+			@apply .flex .justify-around
+
+			& > div
+				width: 33%
+
+				p:first-child
+					margin-top: 0
+
+	label
+		display: inline-block
+		min-width: 3rem
+		font-weight: 600
+
+	.footer-hero
+		position: relative
+
+		#map
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
